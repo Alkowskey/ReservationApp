@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ReservationsApp2.Context;
@@ -9,9 +10,10 @@ using ReservationsApp2.Context;
 namespace ReservationsApp2.Migrations
 {
     [DbContext(typeof(ResAppContext))]
-    partial class ResAppContextModelSnapshot : ModelSnapshot
+    [Migration("20201001093303_3rd migration")]
+    partial class _3rdmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

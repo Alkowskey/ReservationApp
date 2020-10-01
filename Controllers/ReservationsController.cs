@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,27 +13,27 @@ namespace ReservationsApp2.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class ReservationsController : ControllerBase
     {
-        private readonly ILogger<UsersController> _logger;
+        private readonly ILogger<ReservationsController> _logger;
         private readonly ResAppContext _dbContext;
 
-        public UsersController(ILogger<UsersController> logger, ResAppContext dbContext)
+        public ReservationsController(ILogger<ReservationsController> logger, ResAppContext dbContext)
         {
             _logger = logger;
             _dbContext = dbContext;
         }
 
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<Reservation> Get()
         {
-            return _dbContext.getAllUsers();
+            return _dbContext.getAllReservations();
         }
 
         [HttpPost]
-        public User addUser(User user)
+        public Reservation addUser(Reservation reservation)
         {
-            return _dbContext.addUser(user);
+            return _dbContext.addReservation(reservation);
         }
     }
 }
