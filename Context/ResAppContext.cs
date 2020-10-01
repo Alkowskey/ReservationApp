@@ -14,8 +14,25 @@ namespace ReservationsApp2.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Room> Rooms { get; set; }
 
+        public ResAppContext(DbContextOptions<ResAppContext> options) : base(options)
+        { }
+        /*protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseNpgsql(Confi);*/
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseNpgsql("Server=localhost;database=ResAppDB;user id=postgres;pwd=mc4l3k1999;");
+
+        public IEnumerable<User> getAllUsers(){
+            return Users;
+        }
+
+        public User addUser(User user)
+        {
+            Users.Add(user);
+
+            this.SaveChanges();
+
+            return user;
+        }
+
+
     }
 }

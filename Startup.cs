@@ -30,9 +30,9 @@ namespace ReservationsApp2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            /*services.AddDbContext<ResAppContext>(options =>
+            services.AddDbContext<ResAppContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("ResAppDB"))
-            );*/
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

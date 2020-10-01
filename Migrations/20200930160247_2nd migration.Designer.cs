@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ReservationsApp2.Context;
@@ -9,9 +10,10 @@ using ReservationsApp2.Context;
 namespace ReservationsApp2.Migrations
 {
     [DbContext(typeof(ResAppContext))]
-    partial class ResAppContextModelSnapshot : ModelSnapshot
+    [Migration("20200930160247_2nd migration")]
+    partial class _2ndmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,7 @@ namespace ReservationsApp2.Migrations
 
             modelBuilder.Entity("ReservationsApp2.Models.Room", b =>
                 {
-                    b.Property<int>("RoomId")
+                    b.Property<int>("RoomID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -32,7 +34,7 @@ namespace ReservationsApp2.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
-                    b.HasKey("RoomId");
+                    b.HasKey("RoomID");
 
                     b.HasIndex("UserId");
 
