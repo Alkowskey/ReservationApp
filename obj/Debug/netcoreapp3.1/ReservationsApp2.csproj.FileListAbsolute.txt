@@ -37,6 +37,10 @@ C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\net
 C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\obj\Debug\netcoreapp3.1\ReservationsApp2.csproj.CopyComplete
+C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\obj\Debug\netcoreapp3.1\ReservationsApp2.csproj.CoreCompileInputs.cache
 C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\obj\Debug\netcoreapp3.1\ReservationsApp2.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Aleksander\source\repos\ReservationsApp2\ReservationsApp2\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll

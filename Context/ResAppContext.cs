@@ -18,12 +18,28 @@ namespace ReservationsApp2.Context
         public ResAppContext(DbContextOptions<ResAppContext> options) : base(options)
         { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserRoom>()
+                .HasKey(ur => new { ur.RoomId, ur.UserId });
+
+            modelBuilder.Entity<UserRoom>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.UserRooms)
+                .HasForeignKey(ur => ur.UserId);
+
+            modelBuilder.Entity<UserRoom>()
+                .HasOne(ur => ur.Room)
+                .WithMany(r => r.UserRooms)
+                .HasForeignKey(ur => ur.RoomId);
+        }
+
         /*
          * User part
          */
         public IEnumerable<User> getAllUsers()
         {
-            return Users;
+            return Users.Include(u=>u.UserRooms).ThenInclude(ur=>ur.Room);
         }
         public User addUser(User user)
         {
@@ -36,9 +52,15 @@ namespace ReservationsApp2.Context
 
         public User addUserToRoom(User user, Room room)
         {
-            user.Rooms.Add(room);
+            User _user = Users.Where(u => u.Name == user.Name).FirstOrDefault();
+            Room _room = Rooms.Where(r => r.RoomKey == room.RoomKey).FirstOrDefault();
+
+            if (_user.UserRooms == null)
+                _user.UserRooms = new List<UserRoom>();
+
+            _user.UserRooms.Add(new UserRoom(_user, _room));
             this.SaveChanges();
-            return user;
+            return _user;
         }
 
         /*
@@ -46,7 +68,7 @@ namespace ReservationsApp2.Context
          */
         public IEnumerable<Room> getAllRooms()
         {
-            return Rooms;
+            return Rooms.Include(room => room.UserRooms).ThenInclude(ur=>ur.User);
         }
         public Room addRoom(Room room)
         {

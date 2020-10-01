@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 
 using ReservationsApp2.Context;
 using ReservationsApp2.Models;
+using ReservationsApp2.Serializers;
 
 namespace ReservationsApp2.Controllers
 {
@@ -33,6 +34,14 @@ namespace ReservationsApp2.Controllers
         public User addUser(User user)
         {
             return _dbContext.addUser(user);
+        }
+
+        [HttpPost("toRoom")]
+        public User addUserToRoom([FromBody] UserToRoom userToRoom)
+        {
+            User user = userToRoom.User;
+            Room room = userToRoom.Room;
+            return _dbContext.addUserToRoom(user, room);
         }
     }
 }

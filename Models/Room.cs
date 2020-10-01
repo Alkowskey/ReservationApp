@@ -9,6 +9,7 @@ namespace ReservationsApp2.Models
     {
         public int RoomId { get; set; }
         public string RoomKey { get; set; }
+        public List<UserRoom> UserRooms { get; set; }
 
     }
 }

@@ -10,6 +10,6 @@ namespace ReservationsApp2.Models
         public int UserId { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
-        public List<Room> Rooms { get; set; }
+        public List<UserRoom> UserRooms { get; set; }
     }
 }

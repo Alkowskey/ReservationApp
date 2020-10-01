@@ -12,8 +12,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 using ReservationsApp2.Context;
+
 
 namespace ReservationsApp2
 {
@@ -32,6 +34,11 @@ namespace ReservationsApp2
             services.AddControllers();
             services.AddDbContext<ResAppContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("ResAppDB"))
+            );
+            //Got rid of loop handling - many to many relation, sort of.
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
         }
 
